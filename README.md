@@ -25,6 +25,20 @@ A multi-agent AI strategy terminal with a strict editorial interface (not chat b
 
 ---
 
+## Key Technical Decisions
+
+- **Single Flask API service:** Keep backend logic centralized (auth checks, DB access, LLM calls) for faster iteration and easier debugging.
+- **Supabase Auth as user source of truth:** No duplicate app-level users table; sessions are linked to `auth.users(id)`.
+- **Session ownership enforcement:** Backend validates bearer token and scopes sessions/messages/chat by authenticated `user_id`.
+- **Data-driven agent behavior:** Agent personas are stored in DB (`system_prompt`, role metadata, color) instead of hardcoded in frontend.
+- **Bounded LLM context window:** Use agent system prompt + last 8 session messages to balance coherence, cost, and latency.
+- **OpenRouter abstraction:** Model is configurable through `.env`, enabling provider/model swaps without frontend changes.
+- **Transcript-first UI model:** Editorial transcript rendering with semantic borders, avoiding chat-bubble patterns for clarity and role identity.
+- **Client-side perceived streaming:** Assistant responses render progressively in UI for responsiveness while preserving server-side canonical persistence.
+- **Monorepo + single root `.gitignore`:** Simplifies project-level tooling and reduces config drift across frontend/backend.
+
+---
+
 ## Project Structure
 
 - `frontend/` — React client
