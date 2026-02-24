@@ -6,7 +6,7 @@
   --color-canvas: #050505;
   --color-surface: #0a0a0a;
   --color-text-primary: #ededed;
-  --color-text-muted: #737373;
+  --color-text-muted: #9a9a9a;
   --color-divider: rgba(255, 255, 255, 0.08);
   --color-accent-user: #a3a3a3;
   --color-accent-architect: #3b82f6;
@@ -106,3 +106,62 @@ textarea {
 .prose-terminal strong { color: #ffffff; font-weight: 600; }
 .prose-terminal a { color: var(--color-accent-architect); text-decoration: none; }
 .prose-terminal a:hover { text-decoration: underline; }
+
+/* Auth background layers */
+.auth-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.35;
+}
+
+.auth-scanline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.035) 45%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.035) 55%,
+    transparent 100%
+  );
+  background-size: 100% 180px;
+  animation: auth-scan 7s linear infinite;
+  opacity: 0.22;
+}
+
+.auth-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(59, 130, 246, 0.08) 0%, transparent 42%),
+    radial-gradient(circle at 82% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 44%),
+    radial-gradient(circle at 52% 52%, rgba(255, 255, 255, 0.035) 0%, transparent 58%);
+  animation: auth-breathe 6.5s ease-in-out infinite;
+}
+
+@keyframes auth-scan {
+  0% {
+    transform: translateY(-180px);
+  }
+  100% {
+    transform: translateY(180px);
+  }
+}
+
+@keyframes auth-breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react'
+import { motion } from 'framer-motion'
 
 interface AuthScreenProps {
   loading?: boolean
@@ -50,8 +51,14 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ loading = false, onLogin, onSig
       }}
     >
       <div className="noise-overlay" aria-hidden="true" />
+      <div className="auth-grid-overlay" aria-hidden="true" />
+      <div className="auth-rings" aria-hidden="true" />
+      <div className="auth-scanline" aria-hidden="true" />
 
-      <section
+      <motion.section
+        initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         style={{
           width: 'min(560px, 92vw)',
           border: '1px solid var(--color-divider)',
@@ -187,7 +194,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ loading = false, onLogin, onSig
             {loading ? 'Processing...' : mode === 'login' ? 'Enter Boardroom' : 'Create Account'}
           </button>
         </form>
-      </section>
+      </motion.section>
     </div>
   )
 }
