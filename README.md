@@ -123,8 +123,22 @@ Frontend runs on:
 - `http://127.0.0.1:4173`
 
 Vite proxies `/api/*` to the Flask backend on port `5000`.
-
+ 
 ---
+
+## Testing
+
+Run backend tests and generate coverage reports from the project root. Recommended workflow using the project's `uv` tooling:
+
+```bash
+cd backend
+# install dev extras (pytest, pytest-cov, etc.)
+uv sync --extra dev
+# run tests (basic)
+uv run pytest
+# run tests with coverage (terminal + HTML report)
+uv run pytest -- --cov=. --cov-report=term-missing --cov-report=html
+```
 
 ## Notes
 

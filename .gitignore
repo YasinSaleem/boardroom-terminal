@@ -1,4 +1,4 @@
-
+__pycache__
 # Environment
 .env
 
@@ -35,3 +35,7 @@ backend/.pytest_cache/
 *.njsproj
 *.sln
 *.sw?
+
+# Coverage outputs
+.coverage
+htmlcov/

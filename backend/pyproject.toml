@@ -67,3 +67,13 @@ dependencies = [
     "yarl==1.22.0",
     "zstandard==0.25.0",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.0.2",
+    "pytest-cov==7.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --cov=app --cov-report=term-missing --cov-fail-under=80"
