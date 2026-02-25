@@ -2,6 +2,12 @@
 
 A multi-agent AI strategy terminal with a strict editorial interface (not chat bubbles), persistent sessions, and role-based AI personas.
 
+## Login Page
+<img width="1416" height="792" alt="Screenshot 2026-02-25 at 5 20 33 PM" src="https://github.com/user-attachments/assets/c59d47e3-fcb9-4267-a26a-811243766a9e" />
+
+## Boardroom Main Page
+<img width="1500" height="855" alt="Screenshot 2026-02-25 at 5 23 51 PM" src="https://github.com/user-attachments/assets/c50131a7-c1e8-4637-a366-7022f85f8ce1" />
+
 ## Tech Stack
 
 ### Frontend
